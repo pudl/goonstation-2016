@@ -688,9 +688,12 @@ datum
 
 			reaction_obj(var/obj/item/O, var/volume)
 				src = null
-				if(istype(O) && prob(40))
-					if(O.burning)
+				if(istype(O))
+					if(O.burning && prob(40))
 						O.burning = 0
+					else if(istype(O, /obj/item/toy/sponge_capsule))
+						var/obj/item/toy/sponge_capsule/S = O
+						S.add_water()
 				return
 
 			reaction_mob(var/mob/M, var/method=TOUCH, var/volume)

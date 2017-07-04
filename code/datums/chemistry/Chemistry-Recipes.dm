@@ -327,6 +327,16 @@ datum
 				ldmatter_reaction(holder, created_volume)
 				return
 
+		smelling_salts
+			name = "Ammonium Bicarbonate"
+			id = "ammoniumbicarbonate"
+			required_reagents = list("ammonia" = 1, "carbon" = 1, "oxygen" = 1)
+			result = "smelling_salt"
+			required_temperature = T0C + 100
+			instant = 1
+			result_amount = 3
+			mix_phrase = "The mixture produces an aromatic fume."
+
 /*
 		merculite
 			name = "Merculite"

@@ -486,17 +486,37 @@ datum
 		medical/smelling_salt
 			name = "ammonium bicarbonate"
 			id = "smelling_salt"
-			description = "Ammonium bicarbonate ."
+			description = "Ammonium bicarbonate."
 			reagent_state = LIQUID
 			fluid_r = 20
 			fluid_g = 255
 			fluid_b = 60
 			transparency = 40
 			value = 3
-			on_mob_life(var/mob/M)
-				if(!M) M = holder.my_atom
-				if(M.radiation && prob(80))
+			var/remove_buff = FALSE
+			
+			on_add()
+				if(istype(holder) && istype(holder.my_atom) && hascall(holder.my_atom,"add_stam_mod_regen"))
+					remove_buff = holder.my_atom:add_stam_mod_regen("consumable_bad", -3)
+				return
+
+			on_remove()
+				if(remove_buff)
+					if(istype(holder) && istype(holder.my_atom) && hascall(holder.my_atom,"remove_stam_mod_regen"))
+						holder.my_atom:remove_stam_mod_regen("consumable_bad")
+				return
+			
+			on_mob_life(var/mob/M, var/method=INGEST)
+				if(!M)
+					M = holder.my_atom
+
+				if(method == INGEST)
+					if(M.health < -5 && M.health > -30)
+						M.HealDamage("All", 1, 1, 1)
+				if(M.radiation && prob(30))
 					M.irradiate(-1)
+				if(prob(5))
+					M.take_toxin_damage(1)
 				..(M)
 				return
 

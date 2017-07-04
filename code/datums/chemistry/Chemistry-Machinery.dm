@@ -769,6 +769,20 @@
 			src.updateUsrDialog()
 			return
 
+		else if (href_list["createampoule"])
+			var/input_name = input(usr, "Name the ampoule:", "Name", R.get_master_reagent_name()) as null|text
+			var/ampoulename = copytext(html_encode(input_name), 1, 32)
+			if(!ampoulename)
+				return
+			if(ampoulename == " ")
+				ampoulename = R.get_master_reagent_name()
+			var/obj/item/reagent_containers/ampoule/A
+			A = new /obj/item/reagent_containers/ampoule(loc)
+			A.name = "ampoule ([ampoulename])"
+			R.trans_to(A, 5)
+			updateUsrDialog()
+			return
+
 		else
 			usr << browse(null, "window=chem_master")
 			return
@@ -802,6 +816,7 @@
 				dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (30 units max)</A><BR>"
 				dat += "<A href='?src=\ref[src];createpatch=1'>Create patch (40 units max)</A><BR>"
 				dat += "<A href='?src=\ref[src];multipatch=1'>Create multiple patches (5 units min)</A>"
+				dat += "<A href='?src=\ref[src];createampoule=1'>Create ampoule (5 units max)</A>"
 		user << browse("<TITLE>Chemmaster 3000</TITLE>Chemmaster menu:<BR><BR>[dat]", "window=chem_master;size=575x400")
 		onclose(user, "chem_master")
 		return

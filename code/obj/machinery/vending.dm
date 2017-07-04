@@ -209,6 +209,7 @@
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/pill/salbutamol", 10)
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/pill/mannitol", 10)
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/pill/mutadone", 5)
+		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/ampoule/smelling_salts", 2, cost=50)
 		product_list += new/datum/data/vending_product("/obj/item/bandage", 4)
 		product_list += new/datum/data/vending_product("/obj/item/device/healthanalyzer", 4)
 		product_list += new/datum/data/vending_product("/obj/item/device/healthanalyzer_upgrade", 4)
@@ -245,6 +246,7 @@
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/pill/epinephrine", 5, cost=130)
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/emergency_injector/spaceacillin", 2, cost=110)
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/emergency_injector/antihistamine", 2, cost=70)
+		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/ampoule/smelling_salts", 2, cost=50)
 		product_list += new/datum/data/vending_product("/obj/item/reagent_containers/pill/salicylic_acid", 10, cost=65)
 
 		product_list += new/datum/data/vending_product("/obj/item/device/healthanalyzer_upgrade", rand(0, 2), hidden=1, cost=25)

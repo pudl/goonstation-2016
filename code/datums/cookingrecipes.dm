@@ -409,6 +409,14 @@
 	cookbonus = 12
 	output = /obj/item/reagent_containers/food/snacks/sandwich/meatball
 
+/datum/cookingrecipe/sandwich_bm
+	item1 = /obj/item/reagent_containers/food/snacks/ingredient/meat/bacon/raw
+	item2 = /obj/item/reagent_containers/food/snacks/breadloaf/honeywheat
+	item3 = /obj/item/reagent_containers/food/snacks/plant/carrot
+	item4 = /obj/item/reagent_containers/food/snacks/plant/cucumber/
+	cookbonus = 12
+	output = /obj/item/reagent_containers/food/snacks/sandwich/banhmi
+
 /datum/cookingrecipe/sandwich_custom
 	item1 = /obj/item/reagent_containers/food/snacks/breadslice
 	amt1 = 2

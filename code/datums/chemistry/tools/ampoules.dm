@@ -27,10 +27,10 @@
 		icon_state = "amp-[color_id]"
 
 /obj/item/reagent_containers/ampoule/attack(mob/M, mob/user)
-	if(expended || !reagents)
+	if(expended || reagents.total_volume <= 0)
 		boutput(user, "<span style=\"color:red\">[src] is empty!</span>")
 		return
-	if(M == user)
+	else if(M == user)
 		boutput(user, "<span style=\"color:blue\">You crack open and inhale [src].</span>")
 	else
 		user.visible_message("<span style=\"color:red\">[user] attempts to force [M] to inhale [src]!</span>")

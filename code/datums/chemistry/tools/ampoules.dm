@@ -27,31 +27,27 @@
 		icon_state = "amp-[color_id]"
 
 /obj/item/reagent_containers/ampoule/attack(mob/M, mob/user)
-	if(!expended)
-		if(reagents.total_volume <= 0)
-			boutput(user, "<span style=\"color:red\">There's nothing in it!</span>")
-			return
-		if(M == user)
-			boutput(user, "<span style=\"color:blue\">You crack open and inhale [src].</span>")
-		else
-			user.visible_message("<span style=\"color:red\">[user] attempts to force [M] to inhale [src]!</span>")
-			logTheThing("combat", user, M, "tries to make %target% inhale [src] [log_reagents(src)] at [log_loc(user)].")
-			if(!do_mob(user, M))
-				if(user && ismob(user))
-					boutput(user, "<span style=\"color:red\">You were interrupted!</span>")
-				return
-			user.visible_message("<span style=\"color:red\">[user] forces [M] to inhale [src]!</span>", \
-									"<span style=\"color:red\">You force [M] to inhale [src]!</span>")
-		logTheThing("combat", user, M, "[user == M ? "inhales" : "makes %target% inhale"] an ampoule [log_reagents(src)] at [log_loc(user)].")
-		reagents.trans_to(M, 5)
-		reagents.reaction(M, INGEST)
-		expended = TRUE
-		icon_state = "amp-broken"
-		playsound(user.loc, "sound/effects/snap.ogg", 50, 1)
+	if(expended || !reagents)
+		boutput(user, "<span style=\"color:red\">[src] is empty!</span>")
 		return
+	if(M == user)
+		boutput(user, "<span style=\"color:blue\">You crack open and inhale [src].</span>")
 	else
-		boutput(user, "<span style=\"color:red\">[src] has already been used!</span>")
-		return
+		user.visible_message("<span style=\"color:red\">[user] attempts to force [M] to inhale [src]!</span>")
+		logTheThing("combat", user, M, "tries to make %target% inhale [src] [log_reagents(src)] at [log_loc(user)].")
+		if(!do_mob(user, M))
+			if(user && ismob(user))
+				boutput(user, "<span style=\"color:red\">You were interrupted!</span>")
+			return
+		user.visible_message("<span style=\"color:red\">[user] forces [M] to inhale [src]!</span>", \
+								"<span style=\"color:red\">You force [M] to inhale [src]!</span>")
+	logTheThing("combat", user, M, "[user == M ? "inhales" : "makes %target% inhale"] an ampoule [log_reagents(src)] at [log_loc(user)].")
+	reagents.trans_to(M, 5)
+	reagents.reaction(M, INGEST)
+	expended = TRUE
+	icon_state = "amp-broken"
+	playsound(user.loc, "sound/effects/snap.ogg", 50, 1)
+	return
 
 //ampoule types
 

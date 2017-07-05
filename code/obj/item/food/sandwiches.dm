@@ -165,6 +165,15 @@
 		amount = 6
 		heal_amt = 4
 
+	banhmi
+		name = "banh mi"
+		desc = "Sometimes known as a Vietnamese sub. These are hard to make!"
+		icon_state = "banh_mi"
+
+		New()
+			..()
+			reagents.add_reagent("honey", 10)
+
 /obj/item/reagent_containers/food/snacks/burger/
 	name = "burger"
 	desc = "A burger."

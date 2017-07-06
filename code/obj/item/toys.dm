@@ -35,6 +35,56 @@
 			else
 				playsound(get_turf(U), pick(src.sound_attackF1, src.sound_attackF2), 100, 0, 0, U.get_age_pitch())
 
+/obj/item/toy/judge_gavel
+	name = "judge's gavel"
+	desc = "A judge's best friend."
+	icon = 'icons/obj/courtroom.dmi'
+	icon_state = "gavel"
+	w_class = 2
+	force = 5
+	throwforce = 7
+	stamina_damage = 15
+	stamina_cost = 10
+	stamina_crit_chance = 5
+
+/obj/item/toy/judge_gavel/suicide(mob/user)
+	playsound(loc, 'sound/items/gavel.ogg', 75, 1)
+	user.visible_message("<span style=\"color:red\"><b> Sweet Jesus! [user] is bashing their head in with [name]!</b></span>")
+	user.TakeDamage("head", 150, 0)
+	user.updatehealth()
+	spawn(100)
+		if(user)
+			user.suiciding = FALSE
+	return TRUE
+
+/obj/item/toy/judge_block
+	name = "block"
+	desc = "bang bang bang Bang Bang Bang Bang BANG BANG BANG BANG BANG!!!"
+	icon = 'icons/obj/courtroom.dmi'
+	icon_state = "block"
+	flags = SUPPRESSATTACK
+	w_class = 1
+	throwforce = 1
+	throw_speed = 4
+	throw_range = 7
+	stamina_damage = 1
+	stamina_cost = 1
+	stamina_crit_chance = 1
+	var/cooldown = 0
+
+/obj/item/toy/judge_block/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/toy/judge_gavel))
+		if(cooldown < world.time - 20)
+			cooldown = world.time
+			if(do_after(user, 20))
+				playsound(loc, 'sound/items/gavel.ogg', 75, 1)
+				user.say("Order, order in the court!")
+		return
+	return ..()
+
+/obj/item/toy/judge_block/attack()
+	return
+
 /obj/item/toy/figure
 	name = "collectable figure"
 	desc = "<b><span style=\"color:red\">WARNING:</span> CHOKING HAZARD</b> - Small parts. Not for children under 3 years."

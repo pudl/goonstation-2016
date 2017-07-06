@@ -5,6 +5,7 @@
 // - Dagger
 // - Butcher's knife
 // - Axe
+// - Ban me
 
 ////////////////////////////////////////////// Weapon parent //////////////////////////////////
 /* unused now
@@ -299,3 +300,22 @@
 
 /obj/item/axe/vr
 	icon = 'icons/effects/VR.dmi'
+
+
+/////////////////////////////////////////////////// Ban me ////////////////////////////////////////////
+
+/obj/item/banme
+	name = "ban me"
+	desc = "Sometimes known as a... what is this?"
+	icon = 'icons/obj/foodNdrink/food_bread.dmi'
+	icon_state = "banh_mi"
+	force = 0
+	throwforce = 0
+	throw_speed = 3
+	throw_range = 7
+
+/obj/item/banme/attack(mob/M, mob/user)
+	boutput(M, "<span style=\"color:red\"><b>You have been BANNED by [user]!</b></span>")
+	boutput(user, "<span style=\"color:red\"><b>You have BANNED [M]!</b></span>")
+	playsound(loc, 'sound/effects/bang.ogg', 60, 1)
+	return

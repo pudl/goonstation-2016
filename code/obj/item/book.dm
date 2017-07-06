@@ -526,6 +526,20 @@
 	<div class = "granolabarsteps">
 	<li>Cook the ingredients in the oven for 5 seconds on low.
 	</div>
+
+	<h3>
+	<h2>Banh Mi</h2>
+	<h3>Ingredients</h3>
+	<div class = "banhmi">
+	<li>1 Loaf of Honeywheat Bread
+	<li>1 Slice of Raw Bacon
+	<li>1 Carrot
+	<li>1 Cucumber
+	</div>
+	<h3>Steps</h3>
+	<div class = "banhmisteps">
+	<li>Cook the ingredients in the oven for 5 seconds on low.
+	</div>
 	"}
 
 /obj/item/paper/book/monster_manual
@@ -835,7 +849,7 @@ The copy command is:
 >cp
 </div>
 <p>
-Followed by the original file, and then the destination. Pour éxample:
+Followed by the original file, and then the destination. Pour Ã©xample:
 <div class="code">
 >cp /home/GMelons/Pictures/butt_png /home/JGrife/Documents
 </div>
@@ -1840,7 +1854,7 @@ several months worth of nutrients for them.
 					<span class="location"><B>Location:</B> Lava moon</span>
 				</p>
 				<p class="description">
-					Denizens of what is referred to as the “lava moon” that do not move or take action towards most stimuli.  Research had been remarkably inconclusive as to the behavioral patterns of these species, with a hypothesis being proposed that they weren't even creatures at all, and were instead conspicuously-shaped rocks.  That is, until one scientist, in a fit of anger, kicked a magma crab in the face during on-station testing, and was promptly pinched directly in the ankle.  After the scientist in question hid behind a bush to escape the creature, the magma crab returned to its previous state of immobility.
+					Denizens of what is referred to as the Â“lava moonÂ” that do not move or take action towards most stimuli.  Research had been remarkably inconclusive as to the behavioral patterns of these species, with a hypothesis being proposed that they weren't even creatures at all, and were instead conspicuously-shaped rocks.  That is, until one scientist, in a fit of anger, kicked a magma crab in the face during on-station testing, and was promptly pinched directly in the ankle.  After the scientist in question hid behind a bush to escape the creature, the magma crab returned to its previous state of immobility.
 				</p>
 
 				<p>
@@ -1848,7 +1862,7 @@ several months worth of nutrients for them.
 					<span class="location"><B>Location:</B> Unknown</span>
 				</p>
 				<p>
-					Somehow, through some crazy genetics shit, a hybrid of the greater domestic space-bee and the PR-6 Robuddy exists.  We don't know how those two things are capable of reproducing with one another, and to be perfectly honest, we really don't want to know.  Tests still need to be run to determine which characteristics of both species these “BeeBuddies” possess.
+					Somehow, through some crazy genetics shit, a hybrid of the greater domestic space-bee and the PR-6 Robuddy exists.  We don't know how those two things are capable of reproducing with one another, and to be perfectly honest, we really don't want to know.  Tests still need to be run to determine which characteristics of both species these Â“BeeBuddiesÂ” possess.
 				</p>
 
 				<p>

@@ -74,12 +74,13 @@
 
 /obj/item/toy/judge_block/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/toy/judge_gavel))
-		if(cooldown < world.time - 20)
-			cooldown = world.time
-			if(do_after(user, 20))
-				playsound(loc, 'sound/items/gavel.ogg', 75, 1)
-				user.say("Order, order in the court!")
-		return
+		if(cooldown > world.time)
+			return
+		else
+			playsound(loc, 'sound/items/gavel.ogg', 75, 1)
+			user.say("Order, order in the court!")
+			cooldown = world.time + 40
+			return
 	return ..()
 
 /obj/item/toy/judge_block/attack()
